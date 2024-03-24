@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="../css/formulario.css">
+  <title>Calcular Seno</title>
+</head>
+
+<body>
+  <header>
+    <h2>CALCULAR SENO</h2>
+  </header>
+  <main>
+    <div class="formulario">
+      <div class="tercerCalculo">
+        <h3>Seno</h3>
+        <br>
+        <input placeholder="N" class="texto" id="seno" type="number">
+        <input placeholder="X" class="texto" id="seno2" type="number">
+        <button onclick="seno()">Calcular Seno</button>
+        <p id="resultado3"></p>
+      </div>
+    </div>
+  </main>
+  <footer>
+  </footer>
+</body>
+<script>
+  function seno() {
+    let val1 = parseInt(document.getElementById('seno').value);
+    let val2 = parseFloat(document.getElementById('seno2').value);
+    let resultado = 0;
+    let x = val2;
+    let mDeLado = 1;
+    let denominador = 1;
+
+    for (let n = 0; n <= val1; n++) {
+      mDeLado *= (2 * n + 1) * (2 * n + 2);
+      denominador *= (2 * n + 1);
+
+      if (n % 2 === 0) {
+        resultado += (1 / (2 * n + 1) * (2 * n + 2) * x) / (mDeLado / denominador);
+      } else {
+        resultado -= (1 / (2 * n + 1) * (2 * n + 2) * x) / (mDeLado / denominador);
+      }
+    }
+
+    let salida1 = document.getElementById('resultado3');
+    salida1.innerHTML = 'El resultado es: ' + resultado;
+  }
+</script>
+
+</html>

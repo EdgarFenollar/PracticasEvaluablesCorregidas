@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="../css/formulario.css">
+  <title>Calcular Factorial y Elevaciones</title>
+</head>
+
+<body>
+  <header>
+    <h2>Calculos Factorial y Elevado X</h2>
+  </header>
+  <main>
+    <div class="formulario">
+      <div class="primerCalculo">
+        <h3>Factorial</h3>
+        <div id="dado1"></div>
+        <br>
+        <input placeholder="Numero" class="texto" id="factorial" type="number">
+        <button onclick="factorial()">Calcular Factorial</button>
+        <p id="resultado1"></p>
+      </div>
+
+      <div class="segundoCalculo">
+        <h3>Elevado X</h3>
+        <div id="dado2"></div>
+        <br>
+        <input placeholder="Numero 1" class="texto" id="elevado1" type="number">
+        <input placeholder="Numero 2" class="texto" id="elevado2" type="number">
+        <button onclick="elevado()">Calcular Elevacion</button>
+        <p id="resultado2"></p>
+      </div>
+    </div>
+  </main>
+  <footer>
+  </footer>
+</body>
+<script>
+  --FACTORIAL
+  function factorial() {
+    var val1 = parseFloat(document.getElementById('factorial').value);
+    let valor1 = val1;
+    let salida1 = document.getElementById('resultado1')
+    let resultado = valor1;
+    if (valor1 == 0 || valor1 == 1){
+      resultado = 1;
+    } 
+    for (let i = 1; i < valor1; i++) { 
+      resultado *= i; 
+      console.log(resultado);
+    }
+    salida1.innerHTML = 'El resultado es: ' + resultado;
+  }
+
+  --ELEVADO
+  function elevado() {
+    var val1 = parseFloat(document.getElementById('elevado1').value);
+    var val2 = parseFloat(document.getElementById('elevado2').value);
+    let valor1 = val1;
+    let valor2 = val2 - 1;
+    let salida = document.getElementById('resultado2')
+    let resultado = valor1;
+    if (val1 < 0 || val2 < 0) {
+      salida.innerHTML = 'No se pueden introducir numeros negativos.';
+    } else {
+      for (let index = 0; index < valor2; index++) {
+        resultado = resultado * val1;
+      }
+      salida.innerHTML = 'El resultado es: ' + resultado;
+    }
+  }
+</script>
+
+</html>
